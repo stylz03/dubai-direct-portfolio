@@ -1,11 +1,46 @@
-<div align="center">
+# Dubai Direct Portfolio
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+This is a responsive React portfolio website for "Dubai Direct", built with TypeScript, Tailwind CSS, and Recharts.
 
-  <h1>Built with AI Studio</h2>
+## Deployment Instructions (GitHub Pages)
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+To deploy this site to GitHub Pages, follow these steps in your terminal inside the project folder:
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+1. **Initialize Git Repository:**
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   ```
 
-</div>
+2. **Branch Setup:**
+   ```bash
+   git branch -M main
+   ```
+
+3. **Link to GitHub:**
+   *Create a new repository on GitHub named `dubai-direct-portfolio`.*
+   ```bash
+   git remote add origin https://github.com/[your-username]/dubai-direct-portfolio.git
+   ```
+
+4. **Push Code:**
+   ```bash
+   git push -u origin main
+   ```
+
+5. **Enable GitHub Pages:**
+   - Go to your repository settings on GitHub.
+   - Click on **Pages** in the left sidebar.
+   - Under **Build and deployment** > **Source**, select **Deploy from a branch**.
+   - Select **main** as the branch and **/(root)** as the folder.
+   - Click **Save**.
+
+6. **View Site:**
+   Your site will be live at `https://[your-username].github.io/dubai-direct-portfolio` within a few minutes.
+
+## Development
+
+- `npm install`: Install dependencies
+- `npm start`: Run development server
+- `npm run build`: Build for production
