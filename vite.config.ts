@@ -4,9 +4,8 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
-    // For GitHub Pages, use the repository name as base path
-    // Change this to '/' if deploying to a custom domain or username.github.io
-    const base = process.env.GITHUB_PAGES === 'true' ? '/dubai-direct-portfolio/' : '/';
+    // Custom domain dubaidirect.co.za uses root path
+    const base = '/';
     
     return {
       base,
