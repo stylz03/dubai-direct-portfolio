@@ -1,6 +1,7 @@
 import React from 'react';
 import { Code, Server, Terminal, Briefcase } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { FloatingCode } from './AnimatedBackgrounds';
 
 const About: React.FC = () => {
   const { ref: sectionRef, isVisible } = useScrollReveal(0.1);
@@ -15,7 +16,9 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-24 scroll-mt-24 relative">
+    <section id="about" className="py-24 scroll-mt-24 relative overflow-hidden">
+      <FloatingCode />
+
       {/* Background accent */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-violet/5 rounded-full filter blur-3xl"></div>
 

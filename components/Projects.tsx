@@ -2,6 +2,7 @@ import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import { ProjectItem } from '../types';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { RadarSweep } from './AnimatedBackgrounds';
 
 const projects: ProjectItem[] = [
     {
@@ -58,7 +59,8 @@ const Projects: React.FC = () => {
     const { ref: titleRef, isVisible } = useScrollReveal(0.1);
 
     return (
-        <section id="projects" className="py-24 scroll-mt-24 relative">
+        <section id="projects" className="py-24 scroll-mt-24 relative overflow-hidden">
+            <RadarSweep />
             {/* Background accents */}
             <div className="absolute top-1/3 right-0 w-72 h-72 bg-accent/5 rounded-full filter blur-3xl"></div>
             <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-violet/5 rounded-full filter blur-3xl"></div>

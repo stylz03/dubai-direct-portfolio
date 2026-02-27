@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ParticleNetwork } from './AnimatedBackgrounds';
 
 const roles = [
   'Full Stack Developer',
@@ -50,6 +51,7 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      <ParticleNetwork />
       {/* Animated background blobs */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 -left-20 w-96 h-96 bg-accent/10 rounded-full filter blur-3xl animate-blob"></div>

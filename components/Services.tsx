@@ -2,6 +2,7 @@ import React from 'react';
 import { LayoutDashboard, GitMerge, ShieldAlert, Smartphone, Database, Cloud } from 'lucide-react';
 import { ServiceItem } from '../types';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { PulsingGrid } from './AnimatedBackgrounds';
 
 const services: (ServiceItem & { gradient: string })[] = [
   {
@@ -46,7 +47,8 @@ const Services: React.FC = () => {
   const { ref: titleRef, isVisible } = useScrollReveal(0.1);
 
   return (
-    <section id="services" className="py-24 scroll-mt-24 relative">
+    <section id="services" className="py-24 scroll-mt-24 relative overflow-hidden">
+      <PulsingGrid />
       {/* Background accent */}
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent/5 rounded-full filter blur-3xl"></div>
 

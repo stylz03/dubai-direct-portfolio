@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, MessageCircle, Send, MapPin } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { SignalWaves } from './AnimatedBackgrounds';
 
 const Contact: React.FC = () => {
   const { ref: titleRef, isVisible } = useScrollReveal(0.1);
@@ -27,7 +28,8 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 scroll-mt-24 relative">
+    <section id="contact" className="py-24 scroll-mt-24 relative overflow-hidden">
+      <SignalWaves />
       {/* Background accents */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
         <div className="absolute top-20 left-20 w-96 h-96 bg-accent/5 rounded-full filter blur-3xl"></div>

@@ -234,6 +234,55 @@
     ::-webkit-scrollbar-thumb:hover {
       background: #3a3a5a;
     }
+
+    /* Animated background keyframes */
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(-200vh);
+      }
+    }
+
+    @keyframes gridPulse {
+
+      0%,
+      100% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(1.5);
+      }
+    }
+
+    @keyframes waveSlide {
+      0% {
+        transform: translateX(-30%) scaleX(0.7);
+      }
+
+      100% {
+        transform: translateX(30%) scaleX(1);
+      }
+    }
+
+    @keyframes signalPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.2;
+      }
+
+      50% {
+        transform: scale(2.5);
+        opacity: 0;
+      }
+    }
   </style>
   <script type="importmap">
 {
