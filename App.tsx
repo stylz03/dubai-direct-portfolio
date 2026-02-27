@@ -1,21 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
-import Demos from './components/Demos';
+import Projects from './components/Projects';
+import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col text-dark">
+    <div className="min-h-screen bg-primary text-gray-200">
       <Navbar />
-      <main className="flex-grow">
+      <main>
         <Hero />
         <About />
         <Services />
-        <Demos />
+        <Projects />
+        <Skills />
         <Contact />
       </main>
       <Footer />

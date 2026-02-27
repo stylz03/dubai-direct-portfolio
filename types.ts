@@ -11,16 +11,17 @@ export interface ServiceItem {
   icon: React.ComponentType<{ className?: string }>;
 }
 
-export interface Task {
-  id: string;
-  text: string;
-  completed: boolean;
+export interface ProjectItem {
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  liveUrl?: string;
+  githubUrl?: string;
 }
 
-export enum DemoType {
-  ANALYTICS = 'analytics',
-  AUTH = 'auth',
-  TASKS = 'tasks',
-  CALCULATOR = 'calculator',
-  CONFIGURATOR = 'configurator'
+export interface SkillCategory {
+  name: string;
+  icon: React.ComponentType<{ className?: string }>;
+  skills: { name: string; level: number }[];
 }
