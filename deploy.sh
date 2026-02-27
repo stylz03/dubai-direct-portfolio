@@ -11,6 +11,10 @@ echo "🚀 Starting deployment to GitHub Pages..."
 echo "📦 Building project..."
 GITHUB_PAGES=true npm run build
 
+# Save dist to a temp location
+echo "📁 Saving build output..."
+cp -r dist /tmp/gh-pages-dist
+
 # Check if gh-pages branch exists
 if git show-ref --verify --quiet refs/heads/gh-pages; then
     echo "📝 gh-pages branch exists, checking out..."
@@ -24,9 +28,10 @@ else
     find . -maxdepth 1 ! -name '.' ! -name '.git' -exec rm -rf {} +
 fi
 
-# Copy dist contents to root
+# Copy saved dist contents to root
 echo "📋 Copying build files..."
-cp -r dist/* .
+cp -r /tmp/gh-pages-dist/* .
+rm -rf /tmp/gh-pages-dist
 
 # Add CNAME for custom domain
 echo "dubaidirect.co.za" > CNAME
