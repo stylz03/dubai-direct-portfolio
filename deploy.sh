@@ -15,17 +15,21 @@ GITHUB_PAGES=true npm run build
 if git show-ref --verify --quiet refs/heads/gh-pages; then
     echo "📝 gh-pages branch exists, checking out..."
     git checkout gh-pages
-    # Remove all files except .git
-    find . -maxdepth 1 ! -name '.' ! -name '.git' ! -name 'node_modules' ! -name 'dist' -exec rm -rf {} +
+    # Remove ALL files except .git directory
+    find . -maxdepth 1 ! -name '.' ! -name '.git' -exec rm -rf {} +
 else
     echo "📝 Creating gh-pages branch..."
     git checkout --orphan gh-pages
     git rm -rf --cached .
+    find . -maxdepth 1 ! -name '.' ! -name '.git' -exec rm -rf {} +
 fi
 
 # Copy dist contents to root
 echo "📋 Copying build files..."
 cp -r dist/* .
+
+# Add CNAME for custom domain
+echo "dubaidirect.co.za" > CNAME
 
 # Add all files
 git add -A
@@ -47,8 +51,4 @@ echo "🔄 Switching back to main branch..."
 git checkout main
 
 echo "✅ Deployment complete!"
-echo "🌐 Your site should be live at: https://[your-username].github.io/dubai-direct-portfolio"
-echo ""
-echo "📌 Don't forget to enable GitHub Pages in your repository settings:"
-echo "   Settings > Pages > Source: Deploy from a branch > gh-pages > / (root)"
-
+echo "🌐 Your site should be live at: https://dubaidirect.co.za"
