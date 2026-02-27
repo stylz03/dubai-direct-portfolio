@@ -40,7 +40,7 @@ const projects: ProjectItem[] = [
     {
         title: 'Fleet Booking Platform',
         description: 'Vehicle rental platform with calendar availability, team management, and mobile-optimized booking flows.',
-        image: 'https://images.unsplash.com/photo-1449965408869-ebd13bc7d0e6?auto=format&fit=crop&q=80&w=800',
+        image: 'https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&q=80&w=800',
         tags: ['React Native', 'Firebase', 'Maps', 'Payments'],
         liveUrl: '#',
         githubUrl: '#',
