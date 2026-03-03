@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { ArrowRight, ChevronDown } from 'lucide-react';
-import { ParticleNetwork } from './AnimatedBackgrounds';
+
+const Spline = lazy(() => import('@splinetool/react-spline'));
 
 const roles = [
+  'Founder & Lead Engineer',
   'Full Stack Developer',
-  'UI/UX Engineer',
+  'Security Auditor',
   'DevOps Specialist',
-  'Security Consultant',
 ];
 
 const Hero: React.FC = () => {
@@ -51,57 +52,59 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      <ParticleNetwork />
-      {/* Animated background blobs */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-accent/10 rounded-full filter blur-3xl animate-blob"></div>
-        <div className="absolute top-1/3 right-0 w-80 h-80 bg-violet/10 rounded-full filter blur-3xl animate-blob" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-neon/5 rounded-full filter blur-3xl animate-blob" style={{ animationDelay: '4s' }}></div>
+
+      {/* 3D Spline Background */}
+      <div className="absolute inset-0 z-10 pointer-events-auto">
+        <Suspense
+          fallback={
+            <div className="w-full h-full flex items-center justify-center bg-transparent pointer-events-none">
+              <div className="flex h-8 w-8 rounded-full bg-neon animate-pulse"></div>
+            </div>
+          }
+        >
+          <Spline
+            className="w-full h-full"
+            scene="https://prod.spline.design/WCe1pB4pwp4cqr7U/scene.splinecode"
+          />
+        </Suspense>
       </div>
 
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
+      {/* Grid pattern overlay to add texture over the 3D model if desired, optional */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-10" style={{
         backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
         backgroundSize: '60px 60px'
       }}></div>
 
-      {/* Floating orbs */}
-      <div className="absolute top-20 right-1/4 w-2 h-2 bg-accent rounded-full animate-float opacity-60"></div>
-      <div className="absolute top-40 left-1/4 w-3 h-3 bg-violet rounded-full animate-float-delayed opacity-40"></div>
-      <div className="absolute bottom-40 right-1/3 w-2 h-2 bg-neon rounded-full animate-float-slow opacity-50"></div>
-      <div className="absolute top-1/2 left-10 w-1.5 h-1.5 bg-accent rounded-full animate-float opacity-30"></div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-auto pointer-events-none">
+        <div className="text-center flex flex-col items-center">
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full glass text-accent text-sm font-medium mb-8 animate-fade-in">
+          <div className="inline-flex items-center px-4 py-2 rounded-full glass text-accent text-sm font-medium mb-8 animate-fade-in pointer-events-auto relative z-20">
             <span className="flex h-2 w-2 rounded-full bg-neon mr-2 animate-pulse"></span>
             Available for Projects
           </div>
 
-          {/* Main heading */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <span className="text-white">I Build</span>
+          {/* Main heading - stays behind the robot */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 animate-fade-in-up drop-shadow-2xl relative z-0" style={{ animationDelay: '0.2s' }}>
+            <span className="text-white">Engineering</span>
             <br />
-            <span className="gradient-text">Digital Experiences</span>
+            <span className="gradient-text">Digital Excellence</span>
           </h1>
 
           {/* Typing effect */}
-          <div className="h-12 flex items-center justify-center mb-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            <span className="text-xl md:text-2xl text-gray-400 font-mono">
+          <div className="h-12 flex items-center justify-center mb-8 animate-fade-in relative z-20" style={{ animationDelay: '0.4s' }}>
+            <span className="text-xl md:text-2xl font-mono text-white/90 font-bold px-4 py-1">
               {'> '}{displayText}
               <span className="animate-typing-cursor text-accent">|</span>
             </span>
           </div>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-            Crafting scalable web applications with modern technologies,
-            robust security, and pixel-perfect interfaces.
+          <p className="text-lg md:text-xl text-white/90 font-medium max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up p-2 relative z-20" style={{ animationDelay: '0.6s' }}>
+            At Dubai Direct, I specialize in crafting secure, scalable web applications that are built to perform and engineered to perfection.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up pointer-events-auto shadow-2xl relative z-20" style={{ animationDelay: '0.8s' }}>
             <a
               href="#projects"
               onClick={(e) => handleScroll(e, 'projects')}
@@ -113,14 +116,14 @@ const Hero: React.FC = () => {
             <a
               href="#contact"
               onClick={(e) => handleScroll(e, 'contact')}
-              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-2xl text-white glass hover:bg-white/10 transition-all duration-300 cursor-pointer"
+              className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-2xl text-white glass hover:bg-white/10 transition-all duration-300 cursor-pointer backdrop-blur-md bg-white/5 border border-white/10"
             >
               Get In Touch
             </a>
           </div>
 
           {/* Stats */}
-          <div className={`grid grid-cols-3 gap-8 max-w-lg mx-auto mt-16 transition-all duration-1000 ${statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className={`grid grid-cols-3 gap-8 max-w-lg mx-auto mt-16 transition-all duration-1000 relative z-20 ${statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <StatCounter end={50} suffix="+" label="Projects" />
             <StatCounter end={30} suffix="+" label="Clients" />
             <StatCounter end={5} suffix="+" label="Years Exp" />
@@ -129,8 +132,8 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <a href="#about" onClick={(e) => handleScroll(e, 'about')} className="text-gray-500 hover:text-accent transition-colors cursor-pointer">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-20 pointer-events-auto">
+        <a href="#about" onClick={(e) => handleScroll(e, 'about')} className="text-white hover:text-accent transition-colors cursor-pointer block p-2 filter drop-shadow-md">
           <ChevronDown className="h-6 w-6" />
         </a>
       </div>

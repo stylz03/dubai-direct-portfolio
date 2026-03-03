@@ -10,9 +10,11 @@
     "deploy": "bash deploy.sh"
   },
   "dependencies": {
-    "react-dom": "^19.2.0",
-    "react": "^19.2.0",
+    "@splinetool/react-spline": "^4.1.0",
+    "@splinetool/runtime": "^1.12.61",
     "lucide-react": "^0.555.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "recharts": "^3.5.1"
   },
   "devDependencies": {
