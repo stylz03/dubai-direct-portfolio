@@ -50,26 +50,26 @@ const Contact: React.FC = () => {
         <div ref={formRef} className={`grid lg:grid-cols-5 gap-8 transition-all duration-700 delay-200 ${formVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {/* Info cards */}
           <div className="lg:col-span-2 space-y-4">
-            <a href="mailto:hello@dubaidirect.co.za" className="block glass rounded-2xl p-5 hover-glow transition-all duration-300 group">
+            <a href="mailto:contact@dubaidirect.co.za" className="block glass rounded-2xl p-5 hover-glow transition-all duration-300 group">
               <div className="flex items-center gap-4">
                 <div className="bg-gradient-to-br from-accent/20 to-blue-500/20 p-3 rounded-xl group-hover:scale-110 transition-transform">
                   <Mail className="h-6 w-6 text-accent" />
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 mb-1">Email</p>
-                  <p className="text-white font-semibold">hello@dubaidirect.co.za</p>
+                  <p className="text-white font-semibold">contact@dubaidirect.co.za</p>
                 </div>
               </div>
             </a>
 
-            <a href="https://wa.me/27600000000" className="block glass rounded-2xl p-5 hover-glow transition-all duration-300 group">
+            <a href="https://wa.me/27665541554" className="block glass rounded-2xl p-5 hover-glow transition-all duration-300 group">
               <div className="flex items-center gap-4">
                 <div className="bg-gradient-to-br from-green-500/20 to-emerald-500/20 p-3 rounded-xl group-hover:scale-110 transition-transform">
                   <MessageCircle className="h-6 w-6 text-green-400" />
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 mb-1">WhatsApp</p>
-                  <p className="text-white font-semibold">+27 60 000 0000</p>
+                  <p className="text-white font-semibold">+27 66 554 1554</p>
                 </div>
               </div>
             </a>
