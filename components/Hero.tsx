@@ -44,6 +44,10 @@ const Hero: React.FC = () => {
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
+    if (id === 'contact') {
+      window.dispatchEvent(new Event('open-chat'));
+      return;
+    }
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });

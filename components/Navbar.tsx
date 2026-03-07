@@ -36,6 +36,12 @@ const Navbar: React.FC = () => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsOpen(false);
+    
+    if (href === '#contact') {
+      window.dispatchEvent(new Event('open-chat'));
+      return;
+    }
+
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
     if (element) {
