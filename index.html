@@ -114,10 +114,15 @@
 
     /* Hide Spline Watermark */
     #logo,
-    a[href*="spline.design"] {
+    a[href^="https://spline.design"],
+    a[href*="spline.design"],
+    img[src*="spline.design"],
+    .spline-watermark {
       display: none !important;
       opacity: 0 !important;
+      visibility: hidden !important;
       pointer-events: none !important;
+      z-index: -999 !important;
     }
 
     html {
