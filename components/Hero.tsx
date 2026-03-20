@@ -58,7 +58,7 @@ const Hero: React.FC = () => {
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
 
       {/* 3D Spline Background */}
-      <div className="absolute inset-0 z-10 pointer-events-auto">
+      <div className="absolute inset-y-0 right-0 z-10 pointer-events-auto w-full md:w-[60%] lg:w-[45%] overflow-hidden">
         <Suspense
           fallback={
             <div className="w-full h-full flex items-center justify-center bg-transparent pointer-events-none">
@@ -79,16 +79,16 @@ const Hero: React.FC = () => {
         backgroundSize: '60px 60px'
       }}></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-auto pointer-events-none">
-        <div className="text-center flex flex-col items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 pointer-events-none">
+        <div className="text-center flex flex-col items-center lg:items-start lg:text-left lg:max-w-2xl">
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 rounded-full glass text-accent text-sm font-medium mb-8 animate-fade-in pointer-events-auto relative z-20">
             <span className="flex h-2 w-2 rounded-full bg-neon mr-2 animate-pulse"></span>
             Available for Projects
           </div>
 
-          {/* Main heading - stays behind the robot */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 animate-fade-in-up drop-shadow-2xl relative z-0" style={{ animationDelay: '0.2s' }}>
+          {/* Main heading */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 animate-fade-in-up drop-shadow-2xl relative z-20" style={{ animationDelay: '0.2s' }}>
             <span className="text-white">Engineering</span>
             <br />
             <span className="gradient-text">Digital Excellence</span>
@@ -108,7 +108,7 @@ const Hero: React.FC = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up pointer-events-auto shadow-2xl relative z-20" style={{ animationDelay: '0.8s' }}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up pointer-events-auto shadow-2xl relative z-20" style={{ animationDelay: '0.8s' }}>
             <a
               href="#projects"
               onClick={(e) => handleScroll(e, 'projects')}
@@ -127,7 +127,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Stats */}
-          <div className={`grid grid-cols-3 gap-8 max-w-lg mx-auto mt-16 transition-all duration-1000 relative z-20 ${statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className={`grid grid-cols-3 gap-8 max-w-lg mx-auto lg:mx-0 mt-16 transition-all duration-1000 relative z-20 ${statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <StatCounter end={50} suffix="+" label="Projects" />
             <StatCounter end={30} suffix="+" label="Clients" />
             <StatCounter end={5} suffix="+" label="Years Exp" />
